@@ -1,0 +1,52 @@
+ackage samara_t4;
+
+public class ClasePila {
+
+    NodoPila cima;
+    int tam;
+
+    public ClasePila() {
+        this.cima = null;
+        this.tam = 0;
+    }
+
+    public boolean EstaVacia() {
+        if (cima == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void Agregar(int d) {
+        NodoPila nuevo = new NodoPila(d);
+        nuevo.siguiente = cima;
+        cima = nuevo;
+        tam++;
+    }
+
+    public int quitar() {
+        int aux = cima.dato;
+        cima = cima.siguiente;
+        tam--;
+        return aux;
+    }
+
+    public int cima() {
+        return cima.dato;
+    }
+
+    public int tama() {
+        return tam;
+    }
+
+    public void MostrarPila() {
+        NodoPila aux = cima;
+        while (aux != null) {
+            System.out.println("[" + aux.dato + "]");
+            aux = aux.siguiente;
+        }
+        System.out.println("");
+    }
+
+}
